@@ -9,17 +9,17 @@ public extension Kit {
         ) {
             self.setting = setting
         }
-
+        
         public var body: some View {
             HStack {
                 image
                 title
                 Spacer()
-             //   subtitle
+                if setting.type == .text { subtitle }
                 badge
             }
         }
-
+        
         @ViewBuilder
         var subtitle: some View {
             if !setting.subtitle.isEmpty {
@@ -28,30 +28,31 @@ public extension Kit {
                     .lineLimit(1)
             }
         }
-
+        
         @ViewBuilder
         var title: some View {
-            if setting.type == .text {
+            switch setting.type {
+            case .text :
                 Text(setting.title)
-            } else if setting.type == .subtitle {
-                VStack {
+            case .subtitle :
+                VStack(alignment: .leading, spac) {
                     Text(setting.title)
-                    subtitle
+                    subtitle.font(.caption)
                 }
+            default : EmptyView()
             }
         }
-
+        
         @ViewBuilder
         var image: some View {
+            let systemName = setting.icon.symbol.description
             if setting.icon.symbol != .none {
-                Image(
-                    systemName: setting.icon.symbol.description
-                )
-                .setting(icon: setting.icon
-                )
+                Image(systemName: systemName)
+                    .setting(icon: setting.icon
+                    )
             }
         }
-
+        
         @ViewBuilder
         var badge: some View {
             if badgeCount > 0 && badgeCount <= 99 {
@@ -65,5 +66,18 @@ public extension Kit {
                     }
             }
         }
+    }
+}
+
+
+struct SettingPreview: PreviewProvider {
+    static var previews: some View {
+        Group {
+            Kit.SettingView(setting: .init(title: "Any Title"))
+            Kit.SettingView(setting: .init(title: "Any Title", subtitle: "Any Subtitle"))
+            Kit.SettingView(setting: .init(type: .subtitle, title: "Any Title", subtitle: "Any Subtitle", icon: .init()))
+        }
+        .preferredColorScheme(.dark)
+        .previewLayout(.sizeThatFits)
     }
 }
