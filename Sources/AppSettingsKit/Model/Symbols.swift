@@ -63,8 +63,9 @@ public extension Kit.Setting {
         case iphone
         case ipad
         case macbook
-        case homepod(color: Symbol.Color)
+        case homepod
         case appleTV
+        case watch
         case custom(String)
         case none
 
@@ -133,6 +134,7 @@ public extension Kit.Setting {
             case .macbook: return "laptopcomputer"
             case .homepod: return "homepodmini"
             case .appleTV: return "appletv"
+            case .watch: return "applewatch"
             }
         }
     }

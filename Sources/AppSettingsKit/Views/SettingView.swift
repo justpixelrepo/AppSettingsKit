@@ -4,6 +4,7 @@ public extension Kit {
     struct SettingView: View {
         private let setting: Kit.Setting
         @State private var badgeCount = 0
+        
         init(
             setting: Kit.Setting
         ) {
@@ -32,14 +33,14 @@ public extension Kit {
         @ViewBuilder
         var title: some View {
             switch setting.type {
-            case .text :
+            case .text:
                 Text(setting.title)
-            case .subtitle :
-                VStack(alignment: .leading, spac) {
+            case .subtitle:
+                VStack(alignment: .leading) {
                     Text(setting.title)
                     subtitle.font(.caption)
                 }
-            default : EmptyView()
+            default: EmptyView()
             }
         }
         
@@ -48,8 +49,7 @@ public extension Kit {
             let systemName = setting.icon.symbol.description
             if setting.icon.symbol != .none {
                 Image(systemName: systemName)
-                    .setting(icon: setting.icon
-                    )
+                    .setting(icon: setting.icon)
             }
         }
         
@@ -69,7 +69,6 @@ public extension Kit {
     }
 }
 
-
 struct SettingPreview: PreviewProvider {
     static var previews: some View {
         Group {
@@ -77,6 +76,7 @@ struct SettingPreview: PreviewProvider {
             Kit.SettingView(setting: .init(title: "Any Title", subtitle: "Any Subtitle"))
             Kit.SettingView(setting: .init(type: .subtitle, title: "Any Title", subtitle: "Any Subtitle", icon: .init()))
         }
+        .padding()
         .preferredColorScheme(.dark)
         .previewLayout(.sizeThatFits)
     }
