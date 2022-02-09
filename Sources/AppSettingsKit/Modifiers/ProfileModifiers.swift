@@ -18,16 +18,17 @@ public extension AppSettingsKit {
     struct ProfileEditModifier: ViewModifier {
         public func body(content: Content) -> some View {
             content
+                .imageScale(.large)
                 .overlay(
                     Rectangle()
                         .fill(.black.opacity(0.7))
-                        .offset(y: 38)
+                        .offset(y: 50)
                 )
                 .overlay(
                     Text("EDIT")
-                        .font(.system(size: 8).weight(.light))
+                        .font(.system(size: 9).weight(.light))
                         .foregroundColor(.white)
-                        .offset(y: 18)
+                        .offset(y: 25)
                 )
                 .mask(RoundedRectangle(
                     cornerRadius: 30,
@@ -38,13 +39,20 @@ public extension AppSettingsKit {
     }
 }
 
-public extension Button where Label == ModifiedContent<Image,Kit.ProfileImageModifier> {
-        init(systemName: String = "person.crop.circle.badge.checkmark", action: @escaping () -> Void) {
-            self.init(action: action) {
-                Image(systemName: systemName)
-                    .modifier(Kit.ProfileImageModifier())
-            }
+public extension Button where Label == ModifiedContent<Image, Kit.ProfileImageModifier> {
+    init(systemName: String = "person.crop.circle.badge.checkmark", action: @escaping () -> Void) {
+        self.init(action: action) {
+            Image(systemName: systemName)
+                .modifier(Kit.ProfileImageModifier())
         }
-    
+    }
+
     var editStyle: some View { modifier(Kit.ProfileEditModifier()) }
- }
+}
+
+struct ProfileEditButtonPreview: PreviewProvider {
+    static var previews: some View {
+        Button {}
+            .editStyle
+    }
+}
