@@ -35,7 +35,6 @@
 		9FD323CF278FB9D50046B0B3 = {
 			isa = PBXGroup;
 			children = (
-				9FD323F6278FBA600046B0B3 /* Previews */,
 				9FD323D4278FB9D50046B0B3 /* iOS */,
 				9FD323DD278FB9D80046B0B3 /* Products */,
 				9FD323F3278FB9F70046B0B3 /* Frameworks */,
@@ -65,13 +64,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9FD323F6278FBA600046B0B3 /* Previews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Previews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

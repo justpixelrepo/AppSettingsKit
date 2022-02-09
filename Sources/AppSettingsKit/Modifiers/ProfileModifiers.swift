@@ -14,7 +14,7 @@ public extension AppSettingsKit {
                 .background(Circle().stroke(.gray.opacity(0.1), lineWidth: 4))
         }
     }
-
+    
     struct ProfileEditModifier: ViewModifier {
         public func body(content: Content) -> some View {
             content
@@ -46,13 +46,13 @@ public extension Button where Label == ModifiedContent<Image, Kit.ProfileImageMo
                 .modifier(Kit.ProfileImageModifier())
         }
     }
-
+    
     var editStyle: some View { modifier(Kit.ProfileEditModifier()) }
 }
 
 struct ProfileEditButtonPreview: PreviewProvider {
     static var previews: some View {
         Button {}
-            .editStyle
+        .editStyle
     }
 }
