@@ -2,6 +2,13 @@ import Foundation
 import RoutingHelpers
 import SwiftUI
 import Parsing
+import IdentifiedCollections
+import CasePaths
+
+public enum Tab {
+    case one, inventory, three
+}
+
 
 public struct Item: Equatable, Identifiable {
     public let id = UUID()
@@ -69,6 +76,12 @@ public struct Item: Equatable, Identifiable {
     }
 }
 
+extension Item {
+     public func duplicate() -> Self {
+        .init(name: self.name, color: self.color, status: self.status)
+    }
+}
+
 public enum InventoryRoute {
     case add(Item, ItemRoute? = nil)
 }
@@ -82,6 +95,12 @@ let item = QueryItem("name").orElse(Always(""))
     .map { name, quantity in
         Item(name: String(name), status: .inStock(quantity: quantity))
     }
+
+public enum ItemRowRoute {
+    case delete
+    case duplicate
+    case edit
+}
 
 public let itemRowDeepLinker = PathComponent("edit")
     .skip(PathEnd())
@@ -112,11 +131,12 @@ public let inventoryDeepLinker = PathEnd()
             .take(item)
             .map { .add($0, .colorPicker) }
     )
-    .orElse(
-        PathComponent(UUID.parser())
-            .take(itemRowDeepLinker)
-            .map(InventoryRoute.row)
-    )
+
+enum AppRoute {
+    case one
+    case inventory(InventoryRoute?)
+    case three
+}
 
 let deepLinker = PathComponent("one")
     .skip(PathEnd())
@@ -132,33 +152,122 @@ let deepLinker = PathComponent("one")
             .map { .three }
     )
 
-public class AppViewModel: ObservableObject {
-    @Published var inventoryViewModel: InventoryViewModel
-    @Published var selectedTab: Tab
+public class ItemRowViewModel: Hashable, Identifiable, ObservableObject {
+    @Published public var item: Item
+    @Published public var route: Route?
+    @Published var isSaving = false
 
-    public init(
-        inventoryViewModel: InventoryViewModel = .init(),
-        selectedTab: Tab = .one
-    ) {
-        self.inventoryViewModel = inventoryViewModel
-        self.selectedTab = selectedTab
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.item.id)
     }
 
-    public func open(url: URL) {
-        var request = DeepLinkRequest(url: url)
-        if let route = deepLinker.parse(&request) {
-            switch route {
-            case .one:
-                self.selectedTab = .one
+    public static func == (lhs: ItemRowViewModel, rhs: ItemRowViewModel) -> Bool {
+        lhs.item.id == rhs.item.id
+    }
 
-            case let .inventory(inventoryRoute):
-                self.selectedTab = .inventory
-                self.inventoryViewModel.navigate(to: inventoryRoute)
+    public enum Route: Equatable {
+        case deleteAlert
+        case duplicate(ItemViewModel)
+        case edit(ItemViewModel)
 
-            case .three:
-                self.selectedTab = .three
+        public static func == (lhs: Self, rhs: Self) -> Bool {
+            switch (lhs, rhs) {
+            case (.deleteAlert, .deleteAlert):
+                return true
+            case let (.duplicate(lhs), .duplicate(rhs)):
+                return lhs === rhs
+            case let (.edit(lhs), .edit(rhs)):
+                return lhs === rhs
+            case (.deleteAlert, _), (.duplicate, _), (.edit, _):
+                return false
             }
         }
+    }
+
+    public var onDelete: () -> Void = {}
+    public var onDuplicate: (Item) -> Void = { _ in }
+
+    public var id: Item.ID { self.item.id }
+
+    public init(
+        item: Item
+    ) {
+        self.item = item
+    }
+
+    public func deleteButtonTapped() {
+        self.route = .deleteAlert
+    }
+
+    func deleteConfirmationButtonTapped() {
+        self.onDelete()
+        self.route = nil
+    }
+
+    public func setEditNavigation(isActive: Bool) {
+        self.route = isActive ? .edit(.init(item: self.item)) : nil
+    }
+
+     func edit(item: Item) {
+        self.isSaving = true
+
+        Task { @MainActor in
+            try await Task.sleep(nanoseconds: NSEC_PER_SEC)
+
+            self.isSaving = false
+            self.item = item
+            self.route = nil
+        }
+    }
+
+    public func cancelButtonTapped() {
+        self.route = nil
+    }
+
+    public func duplicateButtonTapped() {
+        self.route = .duplicate(.init(item: self.item.duplicate()))
+    }
+
+     func duplicate(item: Item) {
+        self.onDuplicate(item)
+        self.route = nil
+    }
+}
+
+public class ItemViewModel: Identifiable, ObservableObject {
+    @Published public var item: Item
+    @Published public var nameIsDuplicate = false
+    @Published public var newColors: [Item.Color] = []
+    @Published public var route: Route?
+
+    public var id: Item.ID { self.item.id }
+
+    public enum Route {
+        case colorPicker
+    }
+
+    public init(item: Item, route: Route? = nil) {
+        self.item = item
+        self.route = route
+
+        Task { @MainActor in
+            for await item in self.$item.values {
+                try await Task.sleep(nanoseconds: NSEC_PER_MSEC * 300)
+                self.nameIsDuplicate = item.name == "Keyboard"
+            }
+        }
+    }
+
+    @MainActor
+    public func loadColors() async {
+        try? await Task.sleep(nanoseconds: NSEC_PER_MSEC * 500)
+        self.newColors = [
+            .init(name: "Pink", red: 1, green: 0.7, blue: 0.7),
+        ]
+    }
+
+    public func setColorPickerNavigation(isActive: Bool) {
+        self.route = isActive ? .colorPicker : nil
     }
 }
 
@@ -259,3 +368,35 @@ public class InventoryViewModel: ObservableObject {
         self.route = nil
     }
 }
+
+public class AppViewModel: ObservableObject {
+    @Published var inventoryViewModel: InventoryViewModel
+    @Published var selectedTab: Tab
+
+    public init(
+        inventoryViewModel: InventoryViewModel = .init(),
+        selectedTab: Tab = .one
+    ) {
+        self.inventoryViewModel = inventoryViewModel
+        self.selectedTab = selectedTab
+    }
+
+    public func open(url: URL) {
+        var request = DeepLinkRequest(url: url)
+        if let route = deepLinker.parse(&request) {
+            switch route {
+            case .one:
+                self.selectedTab = .one
+
+            case let .inventory(inventoryRoute):
+                self.selectedTab = .inventory
+//                self.inventoryViewModel.navigate(to: inventoryRoute)
+
+            case .three:
+                self.selectedTab = .three
+            }
+        }
+    }
+}
+
+
