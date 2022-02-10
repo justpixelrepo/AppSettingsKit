@@ -44,6 +44,7 @@ public extension Kit.Setting {
             Kit.Setting(type: .subtitle, title: "Swift", subtitle: "Apple TV HD", icon: .init(symbol: .appleTV))
             
             Kit.Setting(type: .subtitle, title: "Watch", subtitle: "Apple Watch Series 6", icon: .init(symbol: .watch))
+            
         }
     }
 }

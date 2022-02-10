@@ -14,6 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F0E952727B51EEE0086A1BA /* MainApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MainApp-Info.plist"; sourceTree = "<group>"; };
 		9F6721E9278FBB5B00FB8D87 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9FD323D5278FB9D50046B0B3 /* MainAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppApp.swift; sourceTree = "<group>"; };
 		9FD323D7278FB9D80046B0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,6 +36,7 @@
 		9FD323CF278FB9D50046B0B3 = {
 			isa = PBXGroup;
 			children = (
+				9F0E952727B51EEE0086A1BA /* MainApp-Info.plist */,
 				9FD323D4278FB9D50046B0B3 /* iOS */,
 				9FD323DD278FB9D80046B0B3 /* Products */,
 				9FD323F3278FB9F70046B0B3 /* Frameworks */,
@@ -267,6 +269,7 @@
 				DEVELOPMENT_TEAM = CLCZFAVBGV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MainApp-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -297,6 +300,7 @@
 				DEVELOPMENT_TEAM = CLCZFAVBGV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MainApp-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
