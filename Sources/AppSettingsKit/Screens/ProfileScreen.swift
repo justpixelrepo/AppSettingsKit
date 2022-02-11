@@ -1,9 +1,9 @@
 import SwiftUI
 
 public extension Kit {
-    struct ProfileEditView: View {
+    struct ProfileScreen: View {
         @State var profile: Kit.Setting.Profile
-
+        
         @ViewBuilder
         public var body: some View {
             header
@@ -11,7 +11,7 @@ public extension Kit {
             Spacer()
                 .navigationBarTitle("Apple ID", displayMode: .inline)
         }
-
+        
         @ViewBuilder
         var header: some View {
             Button(action: {})
@@ -23,7 +23,7 @@ public extension Kit {
                 .foregroundColor(.secondary)
                 .font(.footnote)
         }
-
+        
         var settings: some View {
             Form {
                 List(Kit.Setting.profile) { group in
@@ -49,3 +49,17 @@ public extension Kit {
         }
     }
 }
+
+struct ProfileScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        Kit.ProfileScreen(
+            profile: .init(name: .init())
+        )
+            .preferredColorScheme(.dark)
+        
+        Kit.ProfileScreen(
+            profile: .init(name: .init())
+        )
+    }
+}
+

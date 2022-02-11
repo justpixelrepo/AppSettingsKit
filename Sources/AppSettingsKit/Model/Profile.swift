@@ -20,7 +20,7 @@ public extension Kit.Setting {
         var email: String
 
         public init(
-            name: AppSettingsKit.Setting.Name,
+            name: Kit.Setting.Name,
             email: String = "codebendr@icloud.com")
         {
             self.name = name

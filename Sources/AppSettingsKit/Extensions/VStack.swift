@@ -1,11 +1,11 @@
 import SwiftUI
 
 
-public extension VStack where Content == Kit.ProfileEditView {
+public extension VStack where Content == Kit.ProfileScreen {
     init(
         profile: Kit.Setting.Profile
     ) {
-        self.init { Kit.ProfileEditView(profile: profile) }
+        self.init { Kit.ProfileScreen(profile: profile) }
     }
 }
 

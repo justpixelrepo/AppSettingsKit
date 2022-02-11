@@ -1,6 +1,7 @@
 public extension Kit.Setting {
     @GroupBuilder
     static var profile: [Group] {
+        
         Group(under: .account) {
             Kit.Setting(title: "Name, Phone Numbers, Email")
             Kit.Setting(title: "Password & Security")

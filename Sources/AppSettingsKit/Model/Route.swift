@@ -1,7 +1,7 @@
 import Parsing
 
-extension Kit.Setting {
-    enum AppRoute: Equatable {
+public extension Kit {
+    enum Route: Equatable {
       case home
       case profile
     }
