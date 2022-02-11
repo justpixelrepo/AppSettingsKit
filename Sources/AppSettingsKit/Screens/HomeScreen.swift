@@ -10,7 +10,7 @@ public extension Kit {
         public init() {}
         
         public var body: some View {
-            NavigationView {
+         //   NavigationView {
                 Form {
                     Section {
                         NavigationLink(
@@ -42,7 +42,7 @@ public extension Kit {
                     }
                     .navigationTitle("Settings")
                 }
-            }
+          //  }
         }
     }
 }
