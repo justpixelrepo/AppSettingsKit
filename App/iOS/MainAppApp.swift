@@ -3,12 +3,11 @@ import SwiftUI
 
 @main
 struct MainAppApp: App {
-    let viewModel: SettingsViewModel = .init(route: .profile)
+    let viewModel: Kit.SettingsViewModel = .init(route: .home)
     
     var body: some Scene {
         WindowGroup {
-            Kit.MainScreen(viewModel: viewModel)
-                .onOpenURL { viewModel.open(url: $0)}
+            Kit.HomeScreen(viewModel: .init())
         }
     }
 }

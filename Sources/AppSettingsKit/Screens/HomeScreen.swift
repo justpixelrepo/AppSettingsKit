@@ -2,19 +2,26 @@ import KlugHelpers
 import SwiftUI
 
 public extension Kit {
-     struct HomeScreen: View {
+    struct HomeScreen: View {
         @Environment(\.colorScheme) var colorScheme
         var isDarkMode: Bool { colorScheme == .dark }
         @State private var isOn = false
+        @ObservedObject var viewModel = SettingsViewModel()
+        
+        public init(viewModel: SettingsViewModel = .init()) {
+            self.viewModel = viewModel
+        }
+        
         
         public init() {}
         
         public var body: some View {
-         //   NavigationView {
+            NavigationView {
                 Form {
                     Section {
                         NavigationLink(
-                            profile: .init(name: .init())
+                            profile: .init(name: .init()),
+                            isActive: $viewModel.isProfileActive
                         ) {
                             VStack(profile: .init(name: .init()))
                         }
@@ -30,7 +37,7 @@ public extension Kit {
                                     NavigationLink(
                                         setting: setting
                                     ) {
-    //                                    settings.view
+                                        //                                    settings.view
                                         Text("Any Text")
                                     }
                                 }
@@ -42,7 +49,7 @@ public extension Kit {
                     }
                     .navigationTitle("Settings")
                 }
-          //  }
+            }
         }
     }
 }

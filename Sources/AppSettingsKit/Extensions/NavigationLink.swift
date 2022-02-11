@@ -26,4 +26,19 @@ public extension NavigationLink where Label == Kit.ProfileView {
     }
 }
 
+public extension NavigationLink where Label == Kit.ProfileView {
+    init(
+        profile: Kit.Setting.Profile,
+        isActive: Binding<Bool>,
+        @ViewBuilder destination: () -> Destination
+    ) {
+        self.init(
+            isActive: isActive,
+            destination: destination,
+            label: { Kit.ProfileView(profile: profile) }
+        )
+    }
+}
+
+
 
