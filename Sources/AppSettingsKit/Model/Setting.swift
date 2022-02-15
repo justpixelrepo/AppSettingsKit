@@ -12,6 +12,8 @@ public extension Kit {
         public var type: ViewType
         let title: String
         var subtitle: String
+        var footer: String = .empty
+        var header: String = .empty
         var icon: Icon
 
         public init(

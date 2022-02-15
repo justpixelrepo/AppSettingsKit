@@ -8,10 +8,11 @@ public extension Kit {
         @State private var isOn = false
         @ObservedObject var viewModel = SettingsViewModel()
         
-        public init(viewModel: SettingsViewModel = .init()) {
+        public init(
+            viewModel: SettingsViewModel = .init()
+        ) {
             self.viewModel = viewModel
         }
-        
         
         public init() {}
         
@@ -21,7 +22,7 @@ public extension Kit {
                     Section {
                         NavigationLink(
                             profile: .init(name: .init()),
-                            isActive: $viewModel.isProfileActive
+                            isActive: $viewModel.isActive
                         ) {
                             VStack(profile: .init(name: .init()))
                         }
@@ -37,8 +38,8 @@ public extension Kit {
                                     NavigationLink(
                                         setting: setting
                                     ) {
-                                        //                                    settings.view
-                                        Text("Any Text")
+                                        //settings.view
+                                        Text("\(.any)")
                                     }
                                 }
                             }

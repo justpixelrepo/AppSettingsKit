@@ -2,15 +2,22 @@ import Klug
 import PlaygroundSupport
 import SwiftUI
 
-struct _SymbolVariantsModifier: ViewModifier {
-    private let variant: SymbolVariants
-
-    init(_ variant: SymbolVariants) {
-        self.variant = variant
+public extension List where Content == HStack<Text> {
+    init(settings: [String]) {
+        self.init(settings, selection: .constant(.init())) { s in
+            HStack {
+                Text(s)
+            }
+        }
     }
+}
 
-    func body(content: Content) -> some View {
-        content.symbolVariant(variant)
+struct _View: View {
+    var body: some View {
+        List((1...10).reversed(), id: \.self) {
+                Text("\($0)…")
+            }
+
     }
 }
 
@@ -21,7 +28,9 @@ struct Preview: View {
     }
 
     var preview: some View {
-        Image(systemName: "swift").modifier(_SymbolVariantsModifier(.none))
+        HStack {
+            _View()
+        }
     }
 }
 

@@ -11,14 +11,13 @@ public extension Kit {
             self.setting = setting
         }
         
+        @ViewBuilder
         public var body: some View {
-            HStack {
                 image
                 title
                 Spacer()
                 if setting.type == .text { subtitle }
                 badge
-            }
         }
         
         @ViewBuilder
@@ -71,7 +70,7 @@ public extension Kit {
 
 struct SettingPreview: PreviewProvider {
     static var previews: some View {
-        Group {
+        HStack {
             Kit.SettingView(setting: .init(title: "Any Title"))
             Kit.SettingView(setting: .init(title: "Any Title", subtitle: "Any Subtitle"))
             Kit.SettingView(setting: .init(type: .subtitle, title: "Any Title", subtitle: "Any Subtitle", icon: .init()))

@@ -10,10 +10,14 @@ public extension Kit {
             self.isOn = isOn
         }
         
-        @ViewBuilder public var body: some View {
+        @ViewBuilder
+        public var body: some View {
+            if setting.icon.symbol != .none {
             Image(systemName: setting.icon.symbol.description)
                 .setting(icon: setting.icon)
+   
             Spacer()
+            }
             Toggle(isOn: isOn) {
                 Text(setting.title)
                     .font(.body)

@@ -36,7 +36,7 @@ public extension Kit {
                                 NavigationLink(
                                     setting: setting
                                 ) {
-                                    Text("Any Text")
+                                    ProfileEditView()
                                 }
                             }
                         }
@@ -47,6 +47,8 @@ public extension Kit {
                 }
             }
         }
+        
+        
     }
 }
 
