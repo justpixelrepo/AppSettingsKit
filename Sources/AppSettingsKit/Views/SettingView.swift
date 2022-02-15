@@ -13,11 +13,11 @@ public extension Kit {
         
         @ViewBuilder
         public var body: some View {
-                image
-                title
-                Spacer()
-                if setting.type == .text { subtitle }
-                badge
+            image
+            title
+            Spacer()
+            if setting.type == .text { subtitle }
+            badge
         }
         
         @ViewBuilder
