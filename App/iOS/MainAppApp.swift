@@ -3,7 +3,7 @@ import SwiftUI
 
 @main
 struct MainAppApp: App {
-    let viewModel: Kit.SettingsViewModel = .init(route: .home)
+    let viewModel: Kit.SettingsViewModel = .init(route: .profile)
     
     var body: some Scene {
         WindowGroup {
