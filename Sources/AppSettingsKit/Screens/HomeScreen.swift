@@ -16,6 +16,14 @@ public extension Kit {
         
         public init() {}
         
+        #warning("move to a view model or a child view model?")
+        func bind(_ setting: Setting) -> Binding<Bool> {
+            switch setting.icon.symbol {
+            case .vpn: return $viewModel.isVPN
+            default  : return $viewModel.isAirplaneMode
+            }
+        }
+        
         public var body: some View {
             NavigationView {
                 Form {
@@ -33,7 +41,7 @@ public extension Kit {
                             List(group.settings) { setting in
                                 switch setting.type {
                                 case .toggle:
-                                    HStack(setting: setting, isOn: $isOn)
+                                    HStack(setting: setting, isOn: bind(setting))
                                 case .text, .subtitle:
                                     NavigationLink(
                                         setting: setting
