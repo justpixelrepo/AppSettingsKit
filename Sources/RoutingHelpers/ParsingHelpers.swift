@@ -32,7 +32,7 @@ public struct PathComponent<ComponentParser>: Parser
     public func parse(_ input: inout DeepLinkRequest) -> ComponentParser.Output? {
         guard
             var firstComponent = input.pathComponents.first,
-            let output = component.parse(&firstComponent),
+            let output = try? component.parse(&firstComponent),
             firstComponent.isEmpty
         else { return nil }
 
@@ -71,7 +71,7 @@ public struct QueryItem<ValueParser>: Parser
         guard
             let wrapped = input.queryItems[name]?.first,
             var value = wrapped,
-            let output = valueParser.parse(&value),
+            let output = try? valueParser.parse(&value),
             value.isEmpty
         else { return nil }
 
