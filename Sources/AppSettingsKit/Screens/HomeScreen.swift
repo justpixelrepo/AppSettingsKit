@@ -1,4 +1,3 @@
-import KlugHelpers
 import SwiftUI
 
 public extension Kit {
@@ -36,6 +35,7 @@ public extension Kit {
                         }
                     }
                     
+                    #warning("takes a configuration for localisation?")
                     List(Kit.Setting.main) { group in
                         Section {
                             List(group.settings) { setting in
