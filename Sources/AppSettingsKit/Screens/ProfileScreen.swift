@@ -36,7 +36,7 @@ public extension Kit {
                                 NavigationLink(
                                     setting: setting
                                 ) {
-                                    ProfileEditView()
+                                    Kit.ProfileEditView()
                                 }
                             }
                         }
@@ -54,14 +54,12 @@ public extension Kit {
 
 struct ProfileScreen_Previews: PreviewProvider {
     static var previews: some View {
-        Kit.ProfileScreen(
-            profile: .init(name: .init())
-        )
-            .preferredColorScheme(.dark)
-        
-        Kit.ProfileScreen(
-            profile: .init(name: .init())
-        )
+        VStack {
+            Kit.ProfileScreen(
+                profile: .init(name: .init())
+            )
+                .preferredColorScheme(.dark)
+        }
     }
 }
 
