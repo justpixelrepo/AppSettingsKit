@@ -1,4 +1,5 @@
 import SwiftUI
+import KlugHelpers
 
 public extension Kit {
     struct ProfileScreen: View {
@@ -8,7 +9,6 @@ public extension Kit {
         public var body: some View {
             header
             settings
-            Spacer()
                 .navigationBarTitle("Apple ID", displayMode: .inline)
         }
         
@@ -45,10 +45,17 @@ public extension Kit {
                             .foregroundColor(.pink)
                     }
                 }
+                Section {
+                    Button {
+                        
+                    } label : {
+                        Text("Sign Out")
+                    }
+                    .tint(.red)
+                    .center
+                }
             }
         }
-        
-        
     }
 }
 
@@ -58,8 +65,7 @@ struct ProfileScreen_Previews: PreviewProvider {
             Kit.ProfileScreen(
                 profile: .init(name: .init())
             )
-                .preferredColorScheme(.dark)
+            .preferredColorScheme(.dark)
         }
     }
 }
-
