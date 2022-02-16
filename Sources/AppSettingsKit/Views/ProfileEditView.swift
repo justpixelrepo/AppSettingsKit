@@ -12,6 +12,7 @@ public extension Kit {
             Setting(title: profile.altEmail)
         }
 
+        @ViewBuilder
         public var body: some View {
             Form {
                 Section {
@@ -31,9 +32,7 @@ public extension Kit {
                     HStack {
                         Text("Contactable at")
                         Spacer()
-                        Button {} label: {
-                            Text("Edit")
-                        }
+                        Button("Edit") {}
                     }
                 } footer: {
                     Text("These phone numbers and email addresses can be used to contact you via iMessage, FaceTime, Game Center and more.")
@@ -48,10 +47,26 @@ public extension Kit {
                         setting: .init(title: "Announcement"),
                         isOn: $viewModel.isSubscription)
                 } footer: {
-                   Text("Receive announcements, recommendations and updates about Apple products, services and software")
+                    Text("Receive announcements, recommendations and updates about Apple products, services and software")
+                }
+                
+                Section {
+                    HStack(
+                        setting: .init(title: "Apps, music, TV and more"),
+                        isOn: $viewModel.isNotifications)
+                } footer: {
+                    VStack(alignment: .leading, spacing: 32) {
+                        Text("Receive new releases, exclusive content, special offers and recommendations for apps, music, movies, TV, books, podcasts and more.")
+                        Button("See how your data is managed...") {}
+                        .controlSize(.large)
+                        .center
+                    
+                    }
                 }
                 
             }
+            
+           
         }
     }
 }

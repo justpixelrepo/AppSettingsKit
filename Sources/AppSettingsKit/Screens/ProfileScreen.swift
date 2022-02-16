@@ -1,5 +1,5 @@
-import SwiftUI
 import KlugHelpers
+import SwiftUI
 
 public extension Kit {
     struct ProfileScreen: View {
@@ -7,7 +7,7 @@ public extension Kit {
         
         @ViewBuilder
         public var body: some View {
-            header
+            //  header
             settings
                 .navigationBarTitle("Apple ID", displayMode: .inline)
         }
@@ -16,16 +16,24 @@ public extension Kit {
         var header: some View {
             Button(action: {})
                 .editStyle
-            Text(profile.name.first)
-                .font(.title2)
-                .foregroundColor(.white)
-            Text(profile.email)
-                .foregroundColor(.secondary)
-                .font(.footnote)
         }
         
         var settings: some View {
             Form {
+                Section {} header: {
+                    VStack {
+                        Button(action: {})
+                            .editStyle
+                        Text(profile.name.first)
+                            .font(.title2.lowercaseSmallCaps())
+                            .foregroundColor(.white)
+                        Text(profile.email)
+                            .foregroundColor(.secondary)
+                            .font(.footnote)
+                    }
+                    .center
+                    
+                }
                 List(Kit.Setting.profile) { group in
                     Section {
                         List(group.settings) { setting in
@@ -46,13 +54,9 @@ public extension Kit {
                     }
                 }
                 Section {
-                    Button {
-                        
-                    } label : {
-                        Text("Sign Out")
-                    }
-                    .tint(.red)
-                    .center
+                    Button("Sign Out") {}
+                        .tint(.red)
+                        .center
                 }
             }
         }
