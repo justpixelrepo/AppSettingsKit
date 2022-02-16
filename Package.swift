@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "RoutingHelpers",  targets: ["RoutingHelpers"])
     ],
     dependencies: [
-        .package(url: "https://github.com/codebendr-product-designer/Klug", branch: "develop"),
+        .package(url: "https://github.com/codebendr-product-designer/Klug", from: "0.2.0"),
         .package(url: "https://github.com/pointfreeco/swift-parsing", from: "0.6.0"),
         .package(url: "https://github.com/pointfreeco/swift-case-paths", from: "0.8.0"),
         .package(url: "https://github.com/pointfreeco/swift-identified-collections", from: "0.3.2")
