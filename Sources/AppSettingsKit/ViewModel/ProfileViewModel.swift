@@ -7,6 +7,7 @@ extension Kit {
         @Published public var isActive = true
         @Published public var isSubscription = true
         @Published public var isNotifications = true
+        @Published public var isManagedDataSheet = false
         
         public init() {}
         public init(
@@ -14,7 +15,6 @@ extension Kit {
         ) {
             self.route = route
         }
-        
-        
+ 
     }
 }

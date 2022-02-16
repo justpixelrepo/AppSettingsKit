@@ -1,6 +1,8 @@
 public extension Kit.Setting {
+    
     @GroupBuilder
     static var main: [Group] {
+        
         Group(under: .network) {
             Kit.Setting(type: .toggle, title: "Airplane Mode", icon: .init(fill: .blue, symbol: .airplane))
             Kit.Setting(title: "Wi-Fi", subtitle: "Swift", icon: .init(fill: .blue, symbol: .wifi))
@@ -12,13 +14,9 @@ public extension Kit.Setting {
 
         Group(under: .notifications) {
             Kit.Setting(title: "Notifications", icon: .init(fill: .red, symbol: .notifications))
-            
             Kit.Setting(title: "Sounds & Haptics", icon: .init(fill: .red, symbol: .soundsAndHaptic))
-            
             Kit.Setting(title: "Focus",  icon: .init(fill: .indigo, symbol: .focus))
-            
             Kit.Setting(title: "Screen Time", icon: .init(fill: .indigo, symbol: .screenTime))
-            
         }
 
         Group(under: .general) {
