@@ -5,9 +5,9 @@
         "package": "Klug",
         "repositoryURL": "https://github.com/codebendr-product-designer/Klug",
         "state": {
-          "branch": "develop",
-          "revision": "d35893fc0865aade513e98e8c9829dca4e2f2858",
-          "version": null
+          "branch": null,
+          "revision": "8d789d07ea1a6199e1c50d84e9b6d39127b63346",
+          "version": "0.5.0"
         }
       },
       {

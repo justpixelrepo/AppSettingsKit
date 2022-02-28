@@ -49,7 +49,7 @@
 		9F9EEB0C27BC3193001EA53A /* SupportHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9EEAE127BC3193001EA53A /* SupportHeaderView.swift */; };
 		9F9EEB0D27BC3193001EA53A /* SupportHeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9EEAE227BC3193001EA53A /* SupportHeaderSection.swift */; };
 		9F9EEB0E27BC3193001EA53A /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9EEAE427BC3193001EA53A /* Counter.swift */; };
-		9FD323E5278FB9D80046B0B3 /* MainAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD323D5278FB9D50046B0B3 /* MainAppApp.swift */; };
+		9FD323E5278FB9D80046B0B3 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD323D5278FB9D50046B0B3 /* MainApp.swift */; };
 		9FD323E9278FB9D80046B0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FD323D7278FB9D80046B0B3 /* Assets.xcassets */; };
 		9FD323F5278FB9F70046B0B3 /* AppSettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9FD323F4278FB9F70046B0B3 /* AppSettingsKit */; };
 /* End PBXBuildFile section */
@@ -98,9 +98,11 @@
 		9F9EEAE127BC3193001EA53A /* SupportHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportHeaderView.swift; sourceTree = "<group>"; };
 		9F9EEAE227BC3193001EA53A /* SupportHeaderSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportHeaderSection.swift; sourceTree = "<group>"; };
 		9F9EEAE427BC3193001EA53A /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
-		9FD323D5278FB9D50046B0B3 /* MainAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppApp.swift; sourceTree = "<group>"; };
+		9FD323D5278FB9D50046B0B3 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		9FD323D7278FB9D80046B0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FD323DC278FB9D80046B0B3 /* MainApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MainApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FFFEB0427C6E3DB00408232 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		9FFFEB0627C6E3E900408232 /* MainApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MainApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +305,7 @@
 		9FD323CF278FB9D50046B0B3 = {
 			isa = PBXGroup;
 			children = (
+				9FFFEB0627C6E3E900408232 /* MainApp.entitlements */,
 				9F0E952727B51EEE0086A1BA /* MainApp-Info.plist */,
 				9FD323D4278FB9D50046B0B3 /* iOS */,
 				9FD323DD278FB9D80046B0B3 /* Products */,
@@ -314,7 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				9F9EEAA927BC3193001EA53A /* Supporter */,
-				9FD323D5278FB9D50046B0B3 /* MainAppApp.swift */,
+				9FD323D5278FB9D50046B0B3 /* MainApp.swift */,
 				9FD323D7278FB9D80046B0B3 /* Assets.xcassets */,
 			);
 			path = iOS;
@@ -331,6 +334,7 @@
 		9FD323F3278FB9F70046B0B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9FFFEB0427C6E3DB00408232 /* StoreKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -421,7 +425,7 @@
 				9F9EEAEE27BC3193001EA53A /* HooliganColor+Extensions.swift in Sources */,
 				9F9EEB0327BC3193001EA53A /* FAQItemView.swift in Sources */,
 				9F9EEB0027BC3193001EA53A /* ContactItemView.swift in Sources */,
-				9FD323E5278FB9D80046B0B3 /* MainAppApp.swift in Sources */,
+				9FD323E5278FB9D80046B0B3 /* MainApp.swift in Sources */,
 				9F9EEB0527BC3193001EA53A /* SupportHighlightedSection.swift in Sources */,
 				9F9EEAF727BC3193001EA53A /* SupportContactItem.swift in Sources */,
 				9F9EEB0E27BC3193001EA53A /* Counter.swift in Sources */,
@@ -572,6 +576,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MainApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CLCZFAVBGV;
@@ -603,6 +608,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MainApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CLCZFAVBGV;

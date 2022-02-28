@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/codebendr-product-designer/Klug",
         "state": {
           "branch": null,
-          "revision": "173acaa148902d11a8c4c87aa5a585e9122ccc60",
-          "version": "0.2.0"
+          "revision": "8d789d07ea1a6199e1c50d84e9b6d39127b63346",
+          "version": "0.5.0"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/pointfreeco/swift-parsing",
         "state": {
           "branch": null,
-          "revision": "00ded1efa7d78700130a876d6ec925e37cc41ca2",
-          "version": "0.7.0"
+          "revision": "85e1c50d03999a2b53d30ddae4d0f2a3d872b335",
+          "version": "0.7.1"
         }
       }
     ]
