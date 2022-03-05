@@ -16,7 +16,7 @@ public extension Kit {
         public init() {}
         
         #warning("move to a view model or a child view model?")
-        func bind(_ setting: Setting) -> Binding<Bool> {
+        func bind(_ setting: Kit.Setting) -> Binding<Bool> {
             switch setting.icon.symbol {
             case .vpn: return $viewModel.isVPN
             default  : return $viewModel.isAirplaneMode
@@ -35,7 +35,7 @@ public extension Kit {
                         }
                     }
                     
-                    #warning("takes a configuration for localisation?")
+        #warning("takes a configuration for localisation?")
                     List(Kit.Setting.main) { group in
                         Section {
                             List(group.settings) { setting in
@@ -51,10 +51,10 @@ public extension Kit {
                                     }
                                 }
                             }
-                           // .listRowInsets(.init())
-                     //   .listRowBackground(Color.black.opacity(0.3))
-                        //    .frame(height: 50)
-                           // .background(Color.blue)
+                            // .listRowInsets(.init())
+                            //   .listRowBackground(Color.black.opacity(0.3))
+                            //    .frame(height: 50)
+                            // .background(Color.blue)
                         } header: {
                             Text(group.title)
                                 .foregroundColor(.pink)
@@ -70,7 +70,11 @@ public extension Kit {
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
         Kit.HomeScreen().preferredColorScheme(.dark)
-        
-        Kit.HomeScreen()
+        Kit.HomeScreen(viewModel: {
+            let svm = Kit.SettingsViewModel()
+            //svm.isActive = true
+            svm.isVPN = true
+            return svm
+        }())
     }
 }
