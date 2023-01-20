@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "appsettingskit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/codebendr-product-designer/AppSettingsKit",
+      "state" : {
+        "revision" : "3009a54166158e6b2013139cf39df46beaf2bbdc",
+        "version" : "0.0.12"
+      }
+    },
+    {
       "identity" : "klug",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/codebendr-product-designer/Klug",
@@ -50,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",
       "state" : {
-        "revision" : "a9daebf0bf65981fd159c885d504481a65a75f02",
-        "version" : "0.8.0"
+        "revision" : "16b23a295fa322eb957af98037f86791449de60f",
+        "version" : "0.8.1"
       }
     }
   ],

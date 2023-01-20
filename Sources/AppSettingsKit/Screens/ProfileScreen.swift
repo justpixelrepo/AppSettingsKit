@@ -1,4 +1,3 @@
-import KlugHelpers
 import SwiftUI
 
 public extension Kit {

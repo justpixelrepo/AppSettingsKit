@@ -1,4 +1,3 @@
-import KlugHelpers
 import SwiftUI
 
 public extension NavigationLink where Label == HStack<Kit.SettingView> {

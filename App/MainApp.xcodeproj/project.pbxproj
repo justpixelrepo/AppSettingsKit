@@ -52,6 +52,7 @@
 		9FD323E5278FB9D80046B0B3 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD323D5278FB9D50046B0B3 /* MainApp.swift */; };
 		9FD323E9278FB9D80046B0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FD323D7278FB9D80046B0B3 /* Assets.xcassets */; };
 		9FD323F5278FB9F70046B0B3 /* AppSettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9FD323F4278FB9F70046B0B3 /* AppSettingsKit */; };
+		9FD785132979F71A000766CA /* AppSettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9FD785122979F71A000766CA /* AppSettingsKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FD785132979F71A000766CA /* AppSettingsKit in Frameworks */,
 				9FD323F5278FB9F70046B0B3 /* AppSettingsKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +359,7 @@
 			name = MainApp;
 			packageProductDependencies = (
 				9FD323F4278FB9F70046B0B3 /* AppSettingsKit */,
+				9FD785122979F71A000766CA /* AppSettingsKit */,
 			);
 			productName = "MainApp (iOS)";
 			productReference = 9FD323DC278FB9D80046B0B3 /* MainApp.app */;
@@ -370,7 +373,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					9FD323DB278FB9D80046B0B3 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -386,6 +389,9 @@
 				Base,
 			);
 			mainGroup = 9FD323CF278FB9D50046B0B3;
+			packageReferences = (
+				9FD785112979F719000766CA /* XCRemoteSwiftPackageReference "AppSettingsKit" */,
+			);
 			productRefGroup = 9FD323DD278FB9D80046B0B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -494,6 +500,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -511,6 +518,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -553,6 +561,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -564,6 +573,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -583,12 +593,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MainApp-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Settings;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -615,12 +626,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MainApp-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Settings;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -659,9 +671,25 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		9FD785112979F719000766CA /* XCRemoteSwiftPackageReference "AppSettingsKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/codebendr-product-designer/AppSettingsKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		9FD323F4278FB9F70046B0B3 /* AppSettingsKit */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = AppSettingsKit;
+		};
+		9FD785122979F71A000766CA /* AppSettingsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9FD785112979F719000766CA /* XCRemoteSwiftPackageReference "AppSettingsKit" */;
 			productName = AppSettingsKit;
 		};
 /* End XCSwiftPackageProductDependency section */
