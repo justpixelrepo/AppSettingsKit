@@ -6,7 +6,7 @@ public extension NavigationLink where Label == HStack<Kit.SettingView> {
         @ViewBuilder destination: () -> Destination
     ) {
         self.init(
-            //destination can be setting.view || setting.destination which is a view builder?
+            // destination can be setting.view || setting.destination which is a view builder?
             destination: destination,
             label: {
                 HStack { Kit.SettingView(setting: setting) }
@@ -54,8 +54,3 @@ public extension NavigationLink where Label == Kit.ProfileEditView {
         )
     }
 }
-
-
-
-
-
