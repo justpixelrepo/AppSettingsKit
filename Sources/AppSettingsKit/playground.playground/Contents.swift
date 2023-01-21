@@ -1,16 +1,16 @@
-import Klug
+
 import PlaygroundSupport
 import SwiftUI
 
-public extension List where Content == HStack<Text> {
-    init(settings: [String]) {
-        self.init(settings, selection: .constant(.init())) { s in
-            HStack {
-                Text(s)
-            }
-        }
-    }
-}
+//public extension List where Content == HStack<Text> {
+//    init(settings: [String]) {
+//        self.init(settings, selection: .constant(.init())) { s in
+//            HStack {
+//                Text(s)
+//            }
+//        }
+//    }
+//}
 
 struct _View: View {
     var body: some View {
