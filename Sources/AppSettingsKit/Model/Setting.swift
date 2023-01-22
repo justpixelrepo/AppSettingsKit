@@ -69,6 +69,7 @@ public extension Kit.Setting {
 
 public extension Kit.Setting {
     #warning("Make fill accomodate gradients")
+   #warning("Add an image version to accomodate custom images")
  
     struct Icon {
         var fill = Color.clear

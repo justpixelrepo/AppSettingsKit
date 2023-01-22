@@ -38,6 +38,7 @@ public extension Kit.Setting {
         case calendar
         case notes
         case reminders
+        case freeform
         case voiceMemos
         case phone
         case messages
@@ -94,11 +95,12 @@ public extension Kit.Setting {
             case .battery: return "battery.100"
             case .privacy: return "cross"
             case .passwords: return "hand.raised"
-            case .mail: return "mail"
-            case .contacts: return "envelope"
+            case .mail: return "envelope"
+            case .contacts: return "mail"
             case .calendar: return "calendar"
             case .notes: return "note.text"
             case .reminders: return "list.bullet.rectangle"
+            case .freeform: return "pencil.tip.crop.circle.badge.plus"
             case .voiceMemos: return "record.circle"
             case .phone: return "phone"
             case .messages: return "message"
