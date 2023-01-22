@@ -5,10 +5,10 @@ public extension Kit {
         @Environment(\.colorScheme) var colorScheme
         var isDarkMode: Bool { colorScheme == .dark }
         @State private var isOn = false
-        @ObservedObject var viewModel = SettingsViewModel()
+        @ObservedObject var viewModel = SettingsModel()
         
         public init(
-            viewModel: SettingsViewModel = .init()
+            viewModel: SettingsModel = .init()
         ) {
             self.viewModel = viewModel
         }
@@ -71,7 +71,7 @@ struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
         Kit.HomeScreen().preferredColorScheme(.dark)
         Kit.HomeScreen(viewModel: {
-            let svm = Kit.SettingsViewModel()
+            let svm = Kit.SettingsModel()
             //svm.isActive = true
             svm.isVPN = true
             return svm
