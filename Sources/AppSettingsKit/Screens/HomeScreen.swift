@@ -6,6 +6,7 @@ public extension Kit {
         var isDarkMode: Bool { colorScheme == .dark }
         @State private var isOn = false
         @ObservedObject var viewModel = SettingsModel()
+        @State private var searchText = ""
         
         public init(
             viewModel: SettingsModel = .init()
@@ -19,7 +20,7 @@ public extension Kit {
         func bind(_ setting: Kit.Setting) -> Binding<Bool> {
             switch setting.icon.symbol {
             case .vpn: return $viewModel.isVPN
-            default  : return $viewModel.isAirplaneMode
+            default: return $viewModel.isAirplaneMode
             }
         }
         
@@ -33,9 +34,10 @@ public extension Kit {
                         ) {
                             VStack(profile: .init(name: .init()))
                         }
+                        .searchable(text: $searchText)
                     }
                     
-        #warning("takes a configuration for localisation?")
+                    #warning("takes a configuration for localisation?")
                     List(Kit.Setting.main) { group in
                         Section {
                             List(group.settings) { setting in
@@ -46,15 +48,15 @@ public extension Kit {
                                     NavigationLink(
                                         setting: setting
                                     ) {
-                                        //settings.view
+                                        // settings.view
                                         Text("\(.any)")
                                     }
                                 }
                             }
                             /// .listRowInsets(.init())
-                              // .listRowBackground(Color.black.opacity(0.3))
-                                .frame(height: 30)
-                             //.background(Color.blue)
+                            // .listRowBackground(Color.black.opacity(0.3))
+                            .frame(height: 30)
+                            // .background(Color.blue)
                         } header: {
                             Text(group.title)
                                 .foregroundColor(.pink)
@@ -73,7 +75,7 @@ struct HomeScreen_Previews: PreviewProvider {
         Kit.HomeScreen().preferredColorScheme(.dark)
         Kit.HomeScreen(viewModel: {
             let svm = Kit.SettingsModel()
-            //svm.isActive = true
+            // svm.isActive = true
             svm.isVPN = true
             return svm
         }())
