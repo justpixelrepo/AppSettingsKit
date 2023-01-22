@@ -2,9 +2,9 @@ import Foundation
 import SwiftUI
 
 extension Kit {
-    public class SettingsViewModel: ObservableObject {
+    public class SettingsModel: ObservableObject {
         @Published public var route = Kit.Route.home
-        
+
         #warning("we cannot have more than 10 of this")
         //Possible solution
         //Register a name of saving the state of each Bool setting
@@ -21,6 +21,16 @@ extension Kit {
         }
         
         
+    }
+}
+
+public extension Kit.SettingsModel {
+    enum Destination {
+        case home
+        case profile
+        case family
+        case wifi
+        case bluetooth
     }
 }
 
