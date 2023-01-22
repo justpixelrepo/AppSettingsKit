@@ -51,10 +51,10 @@ public extension Kit {
                                     }
                                 }
                             }
-                            // .listRowInsets(.init())
-                            //   .listRowBackground(Color.black.opacity(0.3))
-                            //    .frame(height: 50)
-                            // .background(Color.blue)
+                            /// .listRowInsets(.init())
+                              // .listRowBackground(Color.black.opacity(0.3))
+                                .frame(height: 30)
+                             //.background(Color.blue)
                         } header: {
                             Text(group.title)
                                 .foregroundColor(.pink)
@@ -62,6 +62,7 @@ public extension Kit {
                     }
                     .navigationTitle("Settings")
                 }
+                .padding(0)
             }
         }
     }

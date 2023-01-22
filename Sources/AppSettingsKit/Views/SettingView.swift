@@ -14,6 +14,7 @@ public extension Kit {
         @ViewBuilder
         public var body: some View {
             image
+                .padding(.trailing, 8)
             title
             Spacer()
             if setting.type == .text { subtitle }

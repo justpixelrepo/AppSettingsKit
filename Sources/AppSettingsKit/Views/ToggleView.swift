@@ -15,6 +15,7 @@ public extension Kit {
             if setting.icon.symbol != .none {
             Image(systemName: setting.icon.symbol.description)
                 .setting(icon: setting.icon)
+                .padding(.trailing, 8)
    
             Spacer()
             }

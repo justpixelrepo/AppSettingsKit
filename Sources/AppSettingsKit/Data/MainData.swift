@@ -2,7 +2,7 @@ public extension Kit.Setting {
     @GroupBuilder
     static var main: [Group] {
         Group(under: .network) {
-            Kit.Setting(type: .toggle, title: "Airplane Mode", icon: .init(fill: .blue, symbol: .airplane))
+            Kit.Setting(type: .toggle, title: "Airplane Mode", icon: .init(fill: .orange, symbol: .airplane))
             Kit.Setting(title: "Wi-Fi", subtitle: "Swift", icon: .init(fill: .blue, symbol: .wifi))
             Kit.Setting(title: "Bluetooth", subtitle: "On", icon: .init(fill: .blue, symbol: .bluetooth))
             Kit.Setting(title: "Mobile Data", icon: .init(fill: .green, symbol: .mobileData))
