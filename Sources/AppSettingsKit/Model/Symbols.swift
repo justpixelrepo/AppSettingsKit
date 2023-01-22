@@ -135,6 +135,7 @@ public extension Kit.Setting {
             case .homepod: return "homepodmini"
             case .appleTV: return "appletv"
             case .watch: return "applewatch"
+                
             }
         }
     }
