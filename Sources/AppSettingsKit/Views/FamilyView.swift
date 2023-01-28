@@ -1,7 +1,7 @@
 import SwiftUI
 
 public extension Kit {
-    struct ProfileView: View {
+    struct FamilyView: View {
         private let profile: Kit.Setting.Profile
         
         public init(
@@ -27,11 +27,10 @@ public extension Kit {
     }
 }
 
-struct ProfileViewPreview: PreviewProvider {
+struct FamilyViewPreview: PreviewProvider {
     static var previews: some View {
-        Kit.ProfileView(profile: .init(name: .init(), email: "any@mail.com"))
+        Kit.FamilyView(profile: .init(name: .init(), email: "any@mail.com"))
             .padding()
             .previewLayout(.sizeThatFits)
     }
 }
-

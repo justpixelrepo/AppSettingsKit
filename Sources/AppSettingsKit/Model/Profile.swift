@@ -12,7 +12,7 @@ public extension Kit.Setting {
         }
 
         public init(
-            first: String = "Codebendr",
+            first: String = "Evans",
             middle: String = "Domina",
             last: String = "Attafuah"
         ) {
