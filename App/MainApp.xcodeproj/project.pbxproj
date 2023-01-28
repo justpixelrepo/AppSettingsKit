@@ -677,7 +677,7 @@
 			repositoryURL = "https://github.com/codebendr-product-designer/AppSettingsKit";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.9;
+				minimumVersion = 0.0.13;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
