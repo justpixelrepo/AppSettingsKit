@@ -10,13 +10,13 @@ let package = Package(
         .library(name: "AppSettingsKit", targets: ["AppSettingsKit"])
     ],
     dependencies: [
-        .package(url: "https://github.com/pointfreeco/swiftui-navigation", from: "0.4.5")
+        .package(url: "https://github.com/pointfreeco/swiftui-navigation", from: "0.6.0")
     ],
     targets: [
         .target(
             name: "AppSettingsKit",
             dependencies: [
-                    .product(name: "SwiftUINavigation", package: "swiftui-navigation")
+                  .product(name: "SwiftUINavigation", package: "swiftui-navigation")
                 ])
     ]
 )
