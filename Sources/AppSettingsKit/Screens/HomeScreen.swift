@@ -33,9 +33,23 @@ public extension Kit {
                             isActive: $viewModel.isActive
                         ) {
                             VStack(profile: .init(name: .init()))
+                            
                         }
                         .searchable(text: $searchText)
+                        
+                        NavigationLink {
+                            Text("Any Text")
+                        } label: {
+                            Kit.FamilyView(family: .init())
+                        }
+
+                        
                     }
+                    
+                    Section {
+                        
+                    }
+                    
                     
                     #warning("takes a configuration for localisation?")
                     List(Kit.Setting.main) { group in

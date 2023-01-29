@@ -2,26 +2,37 @@ import SwiftUI
 
 public extension Kit {
     struct FamilyView: View {
-        private let profile: Kit.Setting.Profile
+        private let family: Family
         
         public init(
-            profile: Kit.Setting.Profile
+            family: Family
         ) {
-            self.profile = profile
+            self.family = family
         }
         
         public var body: some View {
             HStack {
-                Image(systemName: "person.crop.circle.badge.checkmark")
-                    .profile
                 
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("\(profile.name.first) \(profile.name.last)")
-                        .font(.title3)
-                    Text("Apple ID, iCloud, Media \n & Purchases")
-                        .font(.caption)
-                        .lineLimit(2)
+                
+                HStack(alignment: .bottom, spacing: -16) {
+                    ForEach((1...4), id: \.self) { _ in
+                        
+                        Image(systemName: "person.crop.circle.fill")
+                            .symbolVariant(.circle)
+                            .font(.title2)
+                            .symbolRenderingMode(.multicolor)
+                            .foregroundStyle(.blue, .blue)
+                            .imageScale(.large)
+                            .overlay(Circle().stroke(Color.black,lineWidth: 1.5).frame(width: 27))
+                           
+                        
+                        
+                    }
+                    
                 }
+                
+                
+                Text("Family")
             }
         }
     }
@@ -29,7 +40,7 @@ public extension Kit {
 
 struct FamilyViewPreview: PreviewProvider {
     static var previews: some View {
-        Kit.FamilyView(profile: .init(name: .init(), email: "any@mail.com"))
+        Kit.FamilyView(family: .init())
             .padding()
             .previewLayout(.sizeThatFits)
     }
