@@ -62,7 +62,7 @@ public extension Kit {
                             viewModel.isManagedDataSheet = true
                         }
                             .controlSize(.large)
-                            .center
+                            .center()
                         
                     }
                 }
@@ -86,7 +86,7 @@ public extension Kit {
                             
                         }
                             .controlSize(.large)
-                            .center
+                            .center()
                         
                        }
                     .padding()

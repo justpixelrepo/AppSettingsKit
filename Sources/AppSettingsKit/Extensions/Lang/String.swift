@@ -3,7 +3,7 @@ public extension String {
     
     @resultBuilder
     struct EmptySpaceBuilder {
-        static func buildBlock(_ parts: String...) -> String {
+        public static func buildBlock(_ parts: String...) -> String {
             parts.joined(separator: " ")
         }
     }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 public extension View {
-    var center: some View {
+    func center() -> some View {
         HStack {
             Spacer()
             self

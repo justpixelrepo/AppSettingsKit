@@ -28,28 +28,18 @@ public extension Kit {
             NavigationView {
                 Form {
                     Section {
-                        NavigationLink(
-                            profile: .init(name: .init()),
-                            isActive: $viewModel.isActive
-                        ) {
+                        NavigationLink {
                             VStack(profile: .init(name: .init()))
-                            
+                        } label: {
+                            Kit.ProfileView(profile: .init(name: .init()))
                         }
                         .searchable(text: $searchText)
-                        
                         NavigationLink {
                             Text("Any Text")
                         } label: {
                             Kit.FamilyView(family: .init())
                         }
-
-                        
                     }
-                    
-                    Section {
-                        
-                    }
-                    
                     
                     #warning("takes a configuration for localisation?")
                     List(Kit.Setting.main) { group in
@@ -62,8 +52,8 @@ public extension Kit {
                                     NavigationLink(
                                         setting: setting
                                     ) {
-                                        // settings.view
-                                        Text("\(.any)")
+                                        setting.view()
+                                       
                                     }
                                 }
                             }

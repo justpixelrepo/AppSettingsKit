@@ -13,13 +13,14 @@ public extension Kit.Setting {
 
         static func buildExpression(_ expression: ()) -> [Kit.Setting] { [] }
 
-        static func buildBlock(_ component: [Kit.Setting]...) -> [Kit.Setting] { component.flatMap { $0 } }
+        public static func buildBlock(_ component: [Kit.Setting]...) -> [Kit.Setting] { component.flatMap { $0 } }
+        
     }
 
     @resultBuilder
     enum GroupBuilder {
  
-        typealias Group = Kit.Setting.Group
+        public typealias Group = Kit.Setting.Group
 
         static func buildEither(first component: [Group]) -> [Group] { component }
 
@@ -31,7 +32,7 @@ public extension Kit.Setting {
 
         static func buildExpression(_ expression: ()) -> [Group] { [] }
 
-        static func buildBlock(_ component: [Group]...) -> [Group] { component.flatMap { $0 } }
+        public static func buildBlock(_ component: [Group]...) -> [Group] { component.flatMap { $0 } }
         
         static func buildArray(_ components: [[Group]]) -> [Group] { components.flatMap { $0 }  }
     

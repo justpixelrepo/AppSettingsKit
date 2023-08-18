@@ -30,7 +30,7 @@ public extension Kit {
                             .foregroundColor(.secondary)
                             .font(.footnote)
                     }
-                    .center
+                    .center()
                     
                 }
                 List(Kit.Setting.profile) { group in
@@ -55,7 +55,7 @@ public extension Kit {
                 Section {
                     Button("Sign Out") {}
                         .tint(.red)
-                        .center
+                        .center()
                 }
             }
         }
