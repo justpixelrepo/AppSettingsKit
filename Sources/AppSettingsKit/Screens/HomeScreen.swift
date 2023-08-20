@@ -52,15 +52,12 @@ public extension Kit {
                                     NavigationLink(
                                         setting: setting
                                     ) {
-                                        setting.view()
-                                       
+                                        setting.view(group.groups, group.title)
                                     }
                                 }
                             }
-                            /// .listRowInsets(.init())
-                            // .listRowBackground(Color.black.opacity(0.3))
                             .frame(height: 30)
-                            // .background(Color.blue)
+                            
                         } header: {
                             Text(group.title)
                                 .foregroundColor(.pink)

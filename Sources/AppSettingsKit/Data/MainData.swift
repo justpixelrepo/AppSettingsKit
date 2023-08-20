@@ -1,6 +1,55 @@
+import SwiftUI
+
+struct GroupView: View {
+    @State var groups: [Kit.Setting.Group]
+    var title: String = ""
+  
+    var body: some View {
+        Form {
+            List(groups) { group in
+                Section {
+                    List(group.settings) { setting in
+                        switch setting.type {
+                        case .toggle:
+                            Text("")
+                            HStack(setting: setting, isOn: .constant(true))
+                        case .text, .subtitle:
+                            NavigationLink(
+                                setting: setting
+                            ) {
+                                setting.view(group.groups, setting.title)
+                            }
+                        }
+                    }
+                    .frame(height: 30)
+                } header: {
+                    Text(group.title)
+                        .foregroundColor(.pink)
+                }
+            }
+            .padding(0)
+        }
+        .padding(0)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(title)
+    }
+}
+
 public extension Kit.Setting {
     @GroupBuilder
     static var main: [Group] {
+        Group(under: .developer) {
+            Kit.Setting(title: "Developer", icon: .init(fill: .blue.opacity(0.7), symbol: .developer)) { groups, title in
+                GroupView(groups: groups, title: title)
+            }
+        } groups: {
+            Group(under: .notifications) {
+                Kit.Setting(title: "Animation", icon: .init(fill: .pink, symbol: .animation))
+                Kit.Setting(title: "Apps", icon: .init(fill: .blue, symbol: .appStore))
+                Kit.Setting(title: "Interactions", icon: .init(fill: .black, symbol: .interaction))
+            }
+        }
+     
         Group(under: .network) {
             Kit.Setting(type: .toggle, title: "Airplane Mode", icon: .init(fill: .orange, symbol: .airplane))
             Kit.Setting(title: "Wi-Fi", subtitle: "Swift", icon: .init(fill: .blue, symbol: .wifi))
@@ -72,10 +121,6 @@ public extension Kit.Setting {
         
         Group(under: .tv) {
             Kit.Setting(title: "TV Provider", icon: .init(fill: .black.opacity(0.7), symbol: .tvProvider))
-        }
-        
-        Group(under: .tv) {
-            Kit.Setting(title: "Developer", icon: .init(fill: .blue.opacity(0.7), symbol: .developer))
         }
         
         Group(under: .apps) {
