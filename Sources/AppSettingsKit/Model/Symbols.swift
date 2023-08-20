@@ -67,6 +67,9 @@ public extension Kit.Setting {
         case homepod
         case appleTV
         case watch
+        case animation
+        case interaction
+        case apps
         case custom(String)
         case none
 
@@ -137,6 +140,9 @@ public extension Kit.Setting {
             case .homepod: return "homepodmini"
             case .appleTV: return "appletv"
             case .watch: return "applewatch"
+            case .interaction: return "hand.tap"
+            case .apps: return "app.badge"
+            case .animation: return "hourglass"
                 
             }
         }

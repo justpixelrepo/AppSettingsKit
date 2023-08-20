@@ -1,6 +1,5 @@
 import Combine
 public extension Kit.Setting {
-
     @resultBuilder
     enum ArrayBuilder {
         static func buildEither(first component: [Kit.Setting]) -> [Kit.Setting] { component }
@@ -14,12 +13,10 @@ public extension Kit.Setting {
         static func buildExpression(_ expression: ()) -> [Kit.Setting] { [] }
 
         public static func buildBlock(_ component: [Kit.Setting]...) -> [Kit.Setting] { component.flatMap { $0 } }
-        
     }
 
     @resultBuilder
     enum GroupBuilder {
- 
         public typealias Group = Kit.Setting.Group
 
         static func buildEither(first component: [Group]) -> [Group] { component }
@@ -33,8 +30,7 @@ public extension Kit.Setting {
         static func buildExpression(_ expression: ()) -> [Group] { [] }
 
         public static func buildBlock(_ component: [Group]...) -> [Group] { component.flatMap { $0 } }
-        
-        static func buildArray(_ components: [[Group]]) -> [Group] { components.flatMap { $0 }  }
-    
+
+        static func buildArray(_ components: [[Group]]) -> [Group] { components.flatMap { $0 } }
     }
 }
