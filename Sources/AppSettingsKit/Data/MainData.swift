@@ -45,8 +45,16 @@ public extension Kit.Setting {
         } groups: {
             Group(under: .notifications) {
                 Kit.Setting(title: "Animation", icon: .init(fill: .pink, symbol: .animation))
-                Kit.Setting(title: "Apps", icon: .init(fill: .blue, symbol: .appStore))
+                Kit.Setting(title: "Apps", icon: .init(fill: .blue, symbol: .appStore)) { groups, title in
+                    GroupView(groups: groups.filter({ $0.category == .apps }), title: title)
+                }
                 Kit.Setting(title: "Interactions", icon: .init(fill: .black, symbol: .interaction))
+            } groups: {
+                Group(under: .apps) {
+                    Kit.Setting(title: "Wallet Card UI", icon: .init(fill: .green, symbol: .custom("wallet.pass.fill"))) { _, _ in
+                        WalletCardView(size: .init(width: 200, height: 1200), model: .init())
+                    }
+                }
             }
         }
      
