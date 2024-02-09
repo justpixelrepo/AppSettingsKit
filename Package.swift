@@ -17,6 +17,12 @@ let package = Package(
             name: "AppSettingsKit",
             dependencies: [
                   .product(name: "SwiftUINavigation", package: "swiftui-navigation")
-                ])
+                ],
+            resources: [
+                .process("Resources")
+            ]
+        ),
+    
+        
     ]
 )

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F1DC9792B733F3700D5FFA6 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DC9782B733F3700D5FFA6 /* SwiftUIView.swift */; };
 		9F9EEAE527BC3193001EA53A /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9EEAAB27BC3193001EA53A /* Design.swift */; };
 		9F9EEAE627BC3193001EA53A /* HooliganVideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9EEAAD27BC3193001EA53A /* HooliganVideoPlayerController.swift */; };
 		9F9EEAE727BC3193001EA53A /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F9EEAAE27BC3193001EA53A /* CHANGELOG.md */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		9F0E952727B51EEE0086A1BA /* MainApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MainApp-Info.plist"; sourceTree = "<group>"; };
+		9F1DC9782B733F3700D5FFA6 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		9F9EEAAB27BC3193001EA53A /* Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		9F9EEAAD27BC3193001EA53A /* HooliganVideoPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HooliganVideoPlayerController.swift; sourceTree = "<group>"; };
 		9F9EEAAE27BC3193001EA53A /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				9F9EEABF27BC3193001EA53A /* Model */,
 				9F9EEACE27BC3193001EA53A /* Views */,
 				9F9EEAE327BC3193001EA53A /* Analytics */,
+				9F1DC9782B733F3700D5FFA6 /* SwiftUIView.swift */,
 			);
 			path = Supporter;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				9F9EEB0927BC3193001EA53A /* ChangelogUpdateCell.swift in Sources */,
 				9F9EEAF327BC3193001EA53A /* SupportItemable.swift in Sources */,
 				9F9EEAE627BC3193001EA53A /* HooliganVideoPlayerController.swift in Sources */,
+				9F1DC9792B733F3700D5FFA6 /* SwiftUIView.swift in Sources */,
 				9F9EEB0727BC3193001EA53A /* SupportItemPageView.swift in Sources */,
 				9F9EEAF527BC3193001EA53A /* SupportReleaseNote.swift in Sources */,
 				9F9EEB0627BC3193001EA53A /* HighlightedItemView.swift in Sources */,

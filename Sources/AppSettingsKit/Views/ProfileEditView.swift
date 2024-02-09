@@ -4,6 +4,7 @@ public extension Kit {
     struct ProfileEditView: View {
         @ObservedObject var viewModel: Kit.ProfileViewModel = .init()
         private var profile: Setting.Profile { viewModel.profile }
+        @State private var isEditMode: EditMode = .inactive
         
         @Setting.ArrayBuilder
         private var settings: [Kit.Setting] {
@@ -26,16 +27,32 @@ public extension Kit {
                 
                 Section {
                     List(settings) { setting in
-                        HStack(setting: setting)
+                        if isEditMode == .active {
+                            HStack {
+                                Image(systemName: "minus.circle.fill")
+                                    .foregroundColor(.red)
+                                    .animation(.spring(.bouncy), value: isEditMode.isEditing)
+                                HStack(setting: setting)
+                            }
+                        } else {
+                            HStack(setting: setting)
+                        }
                     }
+                    .environment(\.editMode, $isEditMode)
+                    
                 } header: {
                     HStack {
                         Text("Contactable at")
                         Spacer()
-                        Button("Edit") {}
+                        Button(action: {
+                            isEditMode = isEditMode == .active ? .inactive : .active
+                        }, label: {
+                            Text(isEditMode == .active ? "Done" : "Edit")
+                        })
                     }
                 } footer: {
                     Text("These phone numbers and email addresses can be used to contact you via iMessage, FaceTime, Game Center and more.")
+                
                 }
                 
                 Section {
@@ -110,3 +127,4 @@ public extension Kit {
 //        Kit.ProfileEditView(viewModel: .init())
 //    }
 //}
+

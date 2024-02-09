@@ -50,9 +50,7 @@ public extension Button where Label == ModifiedContent<Image, Kit.ProfileImageMo
     var editStyle: some View { modifier(Kit.ProfileEditModifier()) }
 }
 
-struct ProfileEditButtonPreview: PreviewProvider {
-    static var previews: some View {
-        Button {}
-        .editStyle
-    }
+#Preview {
+    Button {}
+    .editStyle
 }

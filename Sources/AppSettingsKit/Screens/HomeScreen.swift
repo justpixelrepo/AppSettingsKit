@@ -71,14 +71,11 @@ public extension Kit {
     }
 }
 
-struct HomeScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        Kit.HomeScreen().preferredColorScheme(.dark)
-        Kit.HomeScreen(viewModel: {
-            let svm = Kit.SettingsModel()
-            // svm.isActive = true
-            svm.isVPN = true
-            return svm
-        }())
-    }
+#Preview {
+    Kit.HomeScreen(viewModel: {
+        let svm = Kit.SettingsModel()
+        svm.isAirplaneMode = true
+        svm.isVPN = true
+        return svm
+    }())
 }

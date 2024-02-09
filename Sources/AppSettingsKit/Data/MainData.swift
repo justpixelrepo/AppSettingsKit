@@ -51,8 +51,23 @@ public extension Kit.Setting {
                 Kit.Setting(title: "Interactions", icon: .init(fill: .black, symbol: .interaction))
             } groups: {
                 Group(under: .apps) {
+                    
                     Kit.Setting(title: "Wallet Card UI", icon: .init(fill: .green, symbol: .custom("wallet.pass.fill"))) { _, _ in
                         WalletCardView(size: .init(width: 200, height: 1200), model: .init())
+                    }
+                    
+                    Kit.Setting(title: "Animated Page Indicator UI", icon: .init(fill: .yellow, symbol: .custom("bolt.fill"))) { _, _ in
+                        NavigationStack {
+                            AnimatedPageIndicatorView()
+                        }
+                    }
+                    
+                    Kit.Setting(title: "Expense Tracker UI", icon: .init(fill: .yellow, symbol: .custom("tray.2.fill"))) { _, _ in
+                        TrackerContentView()
+                    }
+                    
+                    Kit.Setting(title: "Movable Grid UI", icon: .init(fill: .yellow, symbol: .custom("tray.2.fill"))) { _, _ in
+                        MovableGridView()
                     }
                 }
             }
@@ -115,6 +130,7 @@ public extension Kit.Setting {
             Kit.Setting(title: "Measure", icon: .init(fill: .black, symbol: .measure))
             Kit.Setting(title: "Shortcuts", icon: .init(fill: .purple, symbol: .shortcuts))
             Kit.Setting(title: "Health", icon: .init(fill: .red, symbol: .health))
+            Kit.Setting(title: "User Authentication", icon: .init(fill: .gray, symbol: .faceIdAndPasscode))
         }
         
         Group(under: .media) {

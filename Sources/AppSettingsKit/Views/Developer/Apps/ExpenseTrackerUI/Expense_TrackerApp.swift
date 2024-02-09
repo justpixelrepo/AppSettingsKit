@@ -1,10 +1,15 @@
-import AppSettingsKit
-import SwiftUI
+//
+//  Expense_TrackerApp.swift
+//  Expense Tracker
+//
+//  Created by Balaji Venkatesh on 10/12/23.
+//
 
-@main
-struct MainAppApp: App {
-    //let viewModel: Kit.SettingsViewModel = .init(route: .profile)
-    //@State var openSupport = false
+import SwiftUI
+import WidgetKit
+
+
+struct Expense_TrackerApp: App {
     @Environment(\.scenePhase) private var scene
     /// User Theme
     @AppStorage("userTheme") private var userTheme: Theme = .systemDefault
@@ -14,9 +19,18 @@ struct MainAppApp: App {
     @AppStorage("notificationAccess") private var isNotificationAccessGiven: NotificationState = .notDetermined
     var body: some Scene {
         WindowGroup {
-            Kit.HomeScreen(viewModel: .init())
-
+            TrackerContentView()
+                /// Reloading Widgets
+                .onChange(of: scene, initial: true, { oldValue, newValue in
+                    if newValue == .background {
+                        WidgetCenter.shared.reloadAllTimelines()
+                    }
+                    
+                    verifyNotificationAccess()
+                })
+                .preferredColorScheme(userTheme.colorScheme)
         }
+        .modelContainer(for: [Transaction.self])
     }
     
     /// Verifying Notification Access
@@ -53,20 +67,3 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         completionHandler([.sound, .banner])
     }
 }
-
-#warning("code to test Supporter library")
-//            NavigationView {
-//                Kit.HomeScreen(viewModel: .init())
-//                    .toolbar {
-//                        ToolbarItem {
-//                            Button {
-//                                openSupport.toggle()
-//                            } label: {
-//                                Image(systemName: "questionmark.circle.fill")
-//                            }
-//                        }
-//                    }
-//                    .fullScreenCover(isPresented: $openSupport) {
-//                        SupportScreen()
-//                    }
-//            }
