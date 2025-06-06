@@ -9,5 +9,5 @@ public extension String {
     }
     
     static let any: Self = "Any Text"
-    static let empty: Self = " " 
+    static let empty: Self = ""
 }

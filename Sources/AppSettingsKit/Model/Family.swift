@@ -2,7 +2,7 @@ public extension Kit.Setting.Profile {
     struct Family {
         var subscriptions: Subscriptions = .init()
         var purchases: Purchases = .init()
-        var LocationSharing: LocationSharing = .init()
+        var locationSharing: LocationSharing = .init()
     }
 }
 
